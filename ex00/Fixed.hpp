@@ -8,15 +8,20 @@
 # include <sstream>
 # include <string>
 
-class FixedPointNum
+class Fixed
 {
   private:
 	int value;
 	static const int fractionalBits = 8;
 
   public:
-	FixedPointNum();
-	FixedPointNum(const FixedPointNum &copy);
+	Fixed();
+	Fixed(int num);
+	Fixed(const Fixed &copy);
+	~Fixed();
+	Fixed &operator=(const Fixed &copy);
+	int getRawBits(void) const;
+	void setRawBits(int const raw);
 };
 
 #endif
