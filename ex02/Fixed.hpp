@@ -32,6 +32,16 @@ class Fixed
 	bool operator<=(Fixed fixed) const;
 	bool operator>=(Fixed fixed) const;
 	bool operator<(Fixed fixed) const;
+	// Arithmetic Operators
+	float operator+(Fixed fixed) const;
+	float operator-(Fixed fixed) const;
+	float operator*(Fixed fixed) const;
+	float operator/(Fixed fixed) const;
+	// Increment / Decrement Operators
+	Fixed &Fixed::operator++();
+	Fixed &Fixed::operator--();
+	Fixed &Fixed::operator++(int);
+	Fixed &Fixed::operator--(int);
 	// Methods
 	float toFloat(void) const;
 	int toInt(void) const;

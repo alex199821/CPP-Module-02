@@ -94,3 +94,57 @@ bool Fixed::operator!=(Fixed fixed) const
 {
 	return (this->toFloat() != (fixed.toFloat()));
 }
+
+// Arithmetic operators
+
+float Fixed::operator+(Fixed fixed) const
+{
+	return (this->toFloat() + (fixed.toFloat()));
+}
+
+float Fixed::operator-(Fixed fixed) const
+{
+	return (this->toFloat() - (fixed.toFloat()));
+}
+
+float Fixed::operator*(Fixed fixed) const
+{
+	return (this->toFloat() * (fixed.toFloat()));
+}
+
+float Fixed::operator/(Fixed fixed) const
+{
+	return (this->toFloat() / (fixed.toFloat()));
+}
+
+// Increment / Decrement Operators
+
+Fixed &Fixed::operator++()
+{
+	this->value++;
+	return (*this);
+}
+
+Fixed &Fixed::operator++(int)
+{
+	Fixed	temp;
+
+	temp = *this;
+	this->value++;
+	return (temp);
+}
+
+Fixed &Fixed::operator--()
+{
+	this->value--;
+	return (*this);
+}
+
+Fixed &Fixed::operator--(int)
+{
+	Fixed	temp;
+
+	temp = *this;
+	this->value--;
+	return (temp);
+}
