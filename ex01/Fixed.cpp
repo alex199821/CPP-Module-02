@@ -9,6 +9,12 @@ Fixed::Fixed(const Fixed &copy) : value(copy.value)
 	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 };
+
+Fixed::Fixed(Fixed &&copy) noexcept : value(copy.value)
+{
+	copy.value = 0;
+}
+
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
