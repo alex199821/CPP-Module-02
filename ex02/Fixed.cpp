@@ -1,22 +1,17 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed() : value(0)
-{
-	std::cout << "Default constructor called" << std::endl;
-};
+Fixed::Fixed() : value(0){};
+
 Fixed::Fixed(const Fixed &copy) : value(copy.value)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 };
 Fixed::~Fixed()
 {
-	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed &Fixed::operator=(const Fixed &copy)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &copy)
 	{
 		value = copy.getRawBits();
@@ -26,26 +21,22 @@ Fixed &Fixed::operator=(const Fixed &copy)
 
 int Fixed::getRawBits() const
 {
-	// std::cout << "getRawBits member function called" << std::endl;
 	return (this->value);
 }
 
 void Fixed::setRawBits(int const raw)
 {
-	std::cout << "setRawBits member function called" << std::endl;
 	this->value = raw;
 }
 
 Fixed::Fixed(const int num)
 {
 	value = num << fractionalBits;
-	std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float num)
 {
 	value = static_cast<int>(roundf(num * (1 << fractionalBits)));
-	std::cout << "Float constructor called" << std::endl;
 }
 
 float Fixed::toFloat(void) const
@@ -119,13 +110,13 @@ float Fixed::operator/(Fixed fixed) const
 
 // Increment / Decrement Operators
 
-Fixed &Fixed::operator++()
+Fixed Fixed::operator++()
 {
 	this->value++;
 	return (*this);
 }
 
-Fixed &Fixed::operator++(int)
+Fixed Fixed::operator++(int)
 {
 	Fixed	temp;
 
@@ -134,17 +125,65 @@ Fixed &Fixed::operator++(int)
 	return (temp);
 }
 
-Fixed &Fixed::operator--()
+Fixed Fixed::operator--()
 {
 	this->value--;
 	return (*this);
 }
 
-Fixed &Fixed::operator--(int)
+Fixed Fixed::operator--(int)
 {
 	Fixed	temp;
 
 	temp = *this;
 	this->value--;
 	return (temp);
+}
+
+Fixed &Fixed::min(Fixed &fixed_num, Fixed &fixed_num2)
+{
+	if (fixed_num.toFloat() <= fixed_num2.toFloat())
+	{
+		return (fixed_num2);
+	}
+	else
+	{
+		return (fixed_num);
+	}
+}
+
+const Fixed &Fixed::min(Fixed const &fixed_num, Fixed const &fixed_num2)
+{
+	if (fixed_num.toFloat() <= fixed_num2.toFloat())
+	{
+		return (fixed_num2);
+	}
+	else
+	{
+		return (fixed_num);
+	}
+}
+
+Fixed &Fixed::max(Fixed &fixed_num, Fixed &fixed_num2)
+{
+	if (fixed_num.toFloat() >= fixed_num2.toFloat())
+	{
+		return (fixed_num);
+	}
+	else
+	{
+		return (fixed_num2);
+	}
+}
+
+const Fixed &Fixed::max(Fixed const &fixed_num, Fixed const &fixed_num2)
+{
+	if (fixed_num.toFloat() >= fixed_num2.toFloat())
+	{
+		return (fixed_num);
+	}
+	else
+	{
+		return (fixed_num2);
+	}
 }

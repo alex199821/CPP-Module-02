@@ -38,13 +38,17 @@ class Fixed
 	float operator*(Fixed fixed) const;
 	float operator/(Fixed fixed) const;
 	// Increment / Decrement Operators
-	Fixed &Fixed::operator++();
-	Fixed &Fixed::operator--();
-	Fixed &Fixed::operator++(int);
-	Fixed &Fixed::operator--(int);
+	Fixed operator++();
+	Fixed operator--();
+	Fixed operator++(int);
+	Fixed operator--(int);
 	// Methods
 	float toFloat(void) const;
 	int toInt(void) const;
+	static Fixed &min(Fixed &fixed_num, Fixed &fixed_num2);
+	static const Fixed &min(Fixed const &fixed_num, Fixed const &fixed_num2);
+	static Fixed &max(Fixed &fixed_num, Fixed &fixed_num2);
+	static const Fixed &max(Fixed const &fixed_num, Fixed const &fixed_num2);
 	// Getter - Setters
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
