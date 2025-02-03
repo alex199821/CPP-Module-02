@@ -144,11 +144,11 @@ Fixed &Fixed::min(Fixed &fixed_num, Fixed &fixed_num2)
 {
 	if (fixed_num.toFloat() <= fixed_num2.toFloat())
 	{
-		return (fixed_num2);
+		return (fixed_num);
 	}
 	else
 	{
-		return (fixed_num);
+		return (fixed_num2);
 	}
 }
 
@@ -156,11 +156,11 @@ const Fixed &Fixed::min(Fixed const &fixed_num, Fixed const &fixed_num2)
 {
 	if (fixed_num.toFloat() <= fixed_num2.toFloat())
 	{
-		return (fixed_num2);
+		return (fixed_num);
 	}
 	else
 	{
-		return (fixed_num);
+		return (fixed_num2);
 	}
 }
 
