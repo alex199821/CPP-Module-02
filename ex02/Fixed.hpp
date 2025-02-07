@@ -21,8 +21,6 @@ class Fixed
 	explicit Fixed(const int num);
 	explicit Fixed(const float num);
 	Fixed(const Fixed &copy);
-	Fixed(Fixed &&copy) noexcept; 
-	// Deconstructor
 	~Fixed();
 	// Overloaded Operator
 	Fixed &operator=(const Fixed &copy);

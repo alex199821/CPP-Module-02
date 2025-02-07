@@ -20,7 +20,6 @@ class Fixed
 	explicit Fixed(const int num);
 	explicit Fixed(const float num);
 	Fixed(const Fixed &copy);
-	Fixed(Fixed &&copy) noexcept; 
 	~Fixed();
 	Fixed &operator=(const Fixed &copy);
 	int getRawBits(void) const;

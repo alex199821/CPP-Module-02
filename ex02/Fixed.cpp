@@ -19,11 +19,6 @@ Fixed &Fixed::operator=(const Fixed &copy)
 	return (*this);
 }
 
-Fixed::Fixed(Fixed &&copy) noexcept : value(copy.value)
-{
-	copy.value = 0;
-}
-
 int Fixed::getRawBits() const
 {
 	return (this->value);
