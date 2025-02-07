@@ -29,6 +29,7 @@ Fixed::Fixed(int num) : value(num)
 {
 	std::cout << "Parameterized constructor called" << std::endl;
 };
+
 int Fixed::getRawBits() const
 {
 	std::cout << "getRawBits member function called" << std::endl;
